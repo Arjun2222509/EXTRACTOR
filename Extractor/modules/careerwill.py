@@ -6,7 +6,7 @@ import asyncio
 import cloudscraper
 from pyrogram import filters
 from Extractor import app
-log_channel = (-1002398386909)
+log_channel = (-1002469037422)
 #----------------------------♛𝕸𝖊𝖊𝖓𝖆 𝖏𝖎♛™--------Telegram @mjmax----------------------------!
 
 
