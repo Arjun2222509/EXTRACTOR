@@ -77,13 +77,14 @@ async def career_will(app, message):
         login_url = "https://elearn.crwilladmin.com/api/v3/login-other"
         raw_text = input1.text
         if "*" in raw_text:
-            headers = {
+            headers =  {
                 "Host": "elearn.crwilladmin.com",
-                "origintype": "web",
-                "accept": "application/json",
-                "content-type": "application/json; charset=utf-8",
+                "appver": "101",
+                "apptype": "android",
+                "cwkey": "+HwN3zs4tPU0p8BpOG5ZlXIU6MaWQmnMHXMJLLFcJ5m4kWqLXGLpsp8+2ydtILXy",
+                "content-type": "application/json; charset=UTF-8",
                 "accept-encoding": "gzip",
-                "user-agent": "okhttp/3.9.1"
+                "user-agent": "okhttp/5.0.0-alpha.2"
             }
 
             email, password = raw_text.split("*")
