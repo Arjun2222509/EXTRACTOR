@@ -87,7 +87,7 @@ async def career_will(app, message):
                 "user-agent": "okhttp/5.0.0-alpha.2"
             }
 
-              email, password = raw_text.split("*")
+                email, password = raw_text.split("*")
             data =  {
                 "deviceType": "android",
                 "password": password,
